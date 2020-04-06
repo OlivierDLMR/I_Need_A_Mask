@@ -7,42 +7,38 @@ class AddScreen extends Component {
     render() {
         return (
             <View style = {{ padding:20 }}>
-                <Text style = {{ color: 'black', fontSize: 50, textAlign: 'center' }}>
+                <Text style = {{ color: 'black', fontSize: 50, textAlign: 'center', marginBottom: 30 }}>
                     Ajouter une pharmacie
                 </Text>
 
-                <Text>Nom</Text>
-                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1}}
+                <Text style={{ marginBottom: 20, fontSize: 15 }}>Nom</Text>
+                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
                             name="Nom"
                             Type='TextInput' returnKeyType='done'
-                            placeholder='Nom'/>
+                            placeholder=' Nom'/>
 
-                <Text>Adresse</Text>
-                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1}}
+                <Text style={{ marginBottom: 20, fontSize: 15 }}>Adresse</Text>
+                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
                             name="Adresse"
                             Type='TextInput' returnKeyType='done'
-                            placeholder='Adresse'/>
+                            placeholder=' Adresse'/>
 
-                <Text>Latitude</Text>
-                <TextInput  style={{ height:40, borderColor:'gray', borderWidth: 1}}
+                <Text style={{ marginBottom: 20, fontSize: 15 }}>Latitude</Text>
+                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
                             name="Latitude"
                             Type='TextInput' returnKeyType='done'
-                            placeholder='Latitude'/>
+                            placeholder=' Latitude'/>
 
-                <Text>Longitude</Text>
-                <TextInput  style={{ height:40, borderColor:'gray', borderWidth: 1}}
+                <Text style={{ marginBottom: 20, fontSize: 15 }}>Longitude</Text>
+                <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
                             name="Longitude"
                             Type='TextInput' returnKeyType='done'
-                            placeholder='Longitude'/>
+                            placeholder=' Longitude'/>
 
-                <Text>Mask</Text>
-                <TextInput  style={{ height:40, borderColor:'gray', borderWidth: 1}}
-                            name="NombreMask"
-                            Type='TextInput' returnKeyType='done'
-                            placeholder='Nombre de masque'/>
+
 
                 <Button title='Enregistrer' onPress={() => this.onSubmit()}
-                        style={{ paddingTop: 10 }}/>
+                        style={{ marginTop: 20 }}/>
 
 
 
