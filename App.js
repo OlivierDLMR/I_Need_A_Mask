@@ -7,6 +7,16 @@ import Add from './screens/AddScreen';
 import {Ionicons} from "@expo/vector-icons";
 
 
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
+import pharmacieApp from './reducers';
+
+const store = createStore(pharmacieApp);
+
+ReactDOM.render((<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>), document.getElementById('root'));
+
+
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {

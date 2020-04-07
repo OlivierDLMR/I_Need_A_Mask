@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import person from './person';
-import currency from './currency';
+import pharmacie from '../reducers/pharmacie';
 
-export default combineReducers({
-    person,
-    currency
+const pharmacieApp = combineReducers({
+    pharmacie
 });
+
+export default pharmacieApp
+
+

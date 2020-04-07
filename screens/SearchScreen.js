@@ -16,11 +16,13 @@ class Search extends Component {
         const { search } = this.state;
 
         return (
-            <SearchBar
-                placeholder="Rechercher..."
-                onChangeText={this.updateSearch}
-                value={search}
-            />
+            <View style={{ MarginTop: 35 }}>
+                <SearchBar
+                    placeholder="Rechercher..."
+                    onChangeText={this.updateSearch}
+                    value={search}
+                />
+            </View>
         );
     }
 }
