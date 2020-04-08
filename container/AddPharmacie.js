@@ -1,12 +1,18 @@
 import { connect } from 'react-redux'
-import { pharmacieAdd, pharmacieRemove } from "../action"
+import { addPharmacie } from "../action/pharmacies"
 import Pharmacies from '../components/AddPharmacieForm'
 
-const mapStateToProps = state => ({AddPharmacieForm: state.pharmacie.items})
+const mapStateToProps = state => {
+    return {
+        pharmacie: state.pharmacie.name,
+        loading: state.pharmacie.loading
+    };
+};
+
 
 const mapDispatchToProps = dispatch => ({
-    add: (pharmacie) => dispatch(pharmacieAdd(pharmacie)),
-    remove: (pharmacie) => dispatch(pharmacieRemove(pharmacie))
+    add: (pharmacie) => dispatch(addPharmacie(pharmacie)),
+
 });
 
 export default connect(

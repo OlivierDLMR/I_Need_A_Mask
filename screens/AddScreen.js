@@ -4,6 +4,11 @@ import {View, Text, TextInput, Button, ScrollView} from 'react-native';
 
 
 class AddScreen extends Component {
+
+    onSubmit() {
+
+    }
+
     render() {
         return (
             <ScrollView>
