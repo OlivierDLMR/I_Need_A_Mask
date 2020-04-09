@@ -19,7 +19,7 @@ class Search extends Component {
                 <Button
                     title='Rechercher'
                     onPress={() =>
-                        navigation.navigate('')}
+                        navigation.navigate('PharmacieListScreen')}
                 />
                 <Stack.Navigator>
                     <Stack.Screen name='PharmacieListScreen' component={PharmacieListScreen}/>

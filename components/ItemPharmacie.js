@@ -3,6 +3,7 @@ import {Text, View} from "react-native";
 
 
 class ItemPharmacie extends Component {
+
     render() {
         const {pharmacie} = this.props;
         return (
@@ -14,7 +15,7 @@ class ItemPharmacie extends Component {
                     Adresse {pharmacie.address}
                 </Text>
                 <Text style={{ fontSize: 15, marginBottom: 20 }}>
-                    Masques {pharmacie.address.mask}
+                    Masques {pharmacie.mask}
                 </Text>
             </View>
         );

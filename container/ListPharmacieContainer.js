@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
+import  ListPharmacie from '../components/ListPharmacie';
 import {
     fetchPharmacies
 
 } from "../action/pharmacies";
-import  ListPharmacie from '../components/ListPharmacie';
+
 
 
 const mapStateToProps = state => {

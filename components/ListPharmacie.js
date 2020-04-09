@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, FlatList} from "react-native";
+import {Button, FlatList, View} from "react-native";
 
 class ListPharmacie extends Component {
 
@@ -8,13 +8,30 @@ class ListPharmacie extends Component {
     }
 
     render() {
-        console.log(this.props.pharmacies);
+        const {
+            pharmacies,
+            loading,
+        } = this.props;
+
+        if (loading) {
+            return (<ActivityIndicator size='large'/>);
+        }
+
         return (
-            <FlatList
-                data={this.props.pharmacies}
-                renderItem={({item}) => <Button title={item.name}/>}
-                keyExtractor={item => item._id}
-            />
+            <View style={{marginTop: 50, marginBottom: 50}}>
+
+                <Button title='Rechercher' onPress={() => this.props.fetchPharmacies()}/>
+                <FlatList data={pharmacies}
+                          renderItem={({item}) =>
+                              <Button
+                                  title={item.name}
+                                  onPress={() =>
+                                      this.props.navigate('PharmacieScreen', {pharmacie:item})
+                                  }>
+                              </Button>}
+                          keyExtractor={item => item._id}
+                />
+            </View>
         );
     }
 }
