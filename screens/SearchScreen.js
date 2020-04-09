@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import {createStackNavigator} from "@react-navigation/stack";
 import {View, Text, Button} from 'react-native';
+import PharmacieListScreen from './PharmacieListScreen';
+import PharmacieScreen from './PharmacieScreen';
 
 import ListPharmacie from '../container/ListPharmacieContainer';
 
+const Stack = createStackNavigator();
 
 class Search extends Component {
     render() {
@@ -17,6 +21,10 @@ class Search extends Component {
                     onPress={() =>
                         navigation.navigate('')}
                 />
+                <Stack.Navigator>
+                    <Stack.Screen name='PharmacieListScreen' component={PharmacieListScreen}/>
+                    <Stack.Screen name='PharmacieScreen' component={PharmacieScreen}/>
+                </Stack.Navigator>
                 <ListPharmacie/>
 
             </View>
