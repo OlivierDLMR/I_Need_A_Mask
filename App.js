@@ -1,70 +1,57 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import index from './reducers/index';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Home from './screens/HomeScreen';
-import Search from './screens/SearchScreen';
-import Add from './screens/AddScreen';
+import HomeScreen from './screens/HomeScreen';
+import SearchScreen from "./screens/SearchScreen";
+import AddScreen from "./screens/AddScreen";
 
-import {Ionicons} from "@expo/vector-icons";
-import { createStore, applyMiddleware } from 'redux';
+import {Ionicons} from '@expo/vector-icons';
 
-import { Provider } from 'react-redux'
-
-import reducers from './reducers/index';
-
-import thunk from "redux-thunk";
-
-
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(index, applyMiddleware(thunk));
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
-
-
-
-function Location() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="LocationDetail" component={DetailScreen} />
-        </Stack.Navigator>
-    );
-}
-
-
 
 export default function App() {
+    const HomeScreenOptions = {
 
-  return (
-      <Provider store={store}>
-          <NavigationContainer>
-          <Tab.Navigator screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                  let iconName;
+    };
+    const SearchScreenOptions = {};
+    const AddScreenOptions = {};
 
-                  if (route.name === 'Home') {
-                      iconName = 'ios-home'
+    return (
+        <Provider store={store}>
+            <NavigationContainer>
+                <Tab.Navigator screenOptions={({route}) => ({
+                    tabBarIcon: ({focused, color, size}) => {
+                        let iconName;
 
-                  } else if (route.name === 'Search') {
-                      iconName ='ios-search';
-                  }else if (route.name === 'Add') {
-                      iconName = 'ios-add-circle';
-                  }
+                        if (route.name === 'Home') {
+                            iconName = 'md-home';
+                        } else if (route.name === 'Search') {
+                            iconName = 'md-search';
+                        } else if (route.name === 'Add') {
+                            iconName = 'md-add-circle';
+                        }
 
-                  // You can return any component that you like here!
-                  return <Ionicons name={iconName} size={size} color={color} />;
-              },
-          })}
-                         tabBarOptions={{
-                             activeTintColor: 'black',
-                             inactiveTintColor: 'black',
-                         }}>
-              <Tab.Screen name="Home" component={Home} />
-              <Tab.Screen name="Search" component={Search} />
-              <Tab.Screen name="Add" component={Add} />
-          </Tab.Navigator>
-      </NavigationContainer>
-      </Provider>
-  );
+                        return <Ionicons name={iconName} size={40} color={color}/>;
+                    },
+                })}
+                               tabBarOptions={{
+                                   showLabel: false,
+                                   activeTintColor: 'black',
+                                   inactiveTintColor: 'grey',
+                               }}>
+                    <Tab.Screen name="Home" options={HomeScreenOptions} component={HomeScreen}/>
+                    <Tab.Screen name="Search" options={SearchScreenOptions} component={SearchScreen}/>
+                    <Tab.Screen name="Add" options={AddScreenOptions} component={AddScreen}/>
+                </Tab.Navigator>
+            </NavigationContainer>
+        </Provider>
+    );
 }

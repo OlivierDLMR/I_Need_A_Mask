@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import pharmacie from '../reducers/pharmacie';
+import pharmacie from './pharmacie';
 
-const pharmacieApp = combineReducers({
-    pharmacie
-});
 
-export default pharmacieApp
+
+export default combineReducers({pharmacie});
 
 
