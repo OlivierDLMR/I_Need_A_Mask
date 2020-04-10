@@ -7,7 +7,7 @@ class FormPharmacie extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: '', adresse: '', latitude: '', longitude: '', masque: '' }
+        this.state = { name: '', adresse: '', latitude: '', longitude: '', masques: '' }
     }
 
     onSubmit() {
@@ -15,7 +15,7 @@ class FormPharmacie extends Component {
         console.log(this.state.adresse);
         console.log(this.state.latitude);
         console.log(this.state.longitude);
-        console.log(this.state.masque);
+        console.log(this.state.masques);
 
         this.props.addPharmacie({
 
@@ -23,9 +23,9 @@ class FormPharmacie extends Component {
             adresse: this.state.adresse,
             latitude: this.state.latitude,
             longitude: this.state.longitude,
-            masques: this.state.masque,
+            masques: this.state.masques,
         });
-        this.setState({ name: '', adresse: '', latitude: '', longitude: '', masque: '' })
+        this.setState({ name: '', adresse: '', latitude: '', longitude: '', masques: '' })
     }
 
     render() {
@@ -60,8 +60,8 @@ class FormPharmacie extends Component {
 
                     <Text style={{ marginBottom: 10, fontSize: 15 }}>Masques</Text>
                     <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
-                                value={this.state.masque}
-                                onChangeText={text => this.setState({masque: text})}
+                                value={this.state.masques}
+                                onChangeText={text => this.setState({masques: text})}
                                 placeholder=' Masques'/>
 
 

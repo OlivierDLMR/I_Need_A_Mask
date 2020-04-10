@@ -26,7 +26,7 @@ class ListPharmacie extends Component {
                                   <Button
                                       title={item.name}
                                       onPress={() =>
-                                          this.props.navigate('PharmacieScreen', {pharmacy: item})
+                                          this.props.navigate('PharmacieScreen', {pharmacie: item})
                                       }>
                                   </Button>}
                               keyExtractor={item => item._id}
