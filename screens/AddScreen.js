@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
-import {ScrollView, Text, TextInput, Button, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import FormPharmacieContainer from "../container/FormPharmacieContainer";
 
 class AddScreen extends Component {
 
     render() {
         return (
-            <ScrollView style={{padding: 25}}>
 
-                <View style={{fontSize: 15, marginBottom: 10}}>
-                    <FormPharmacieContainer/>
+            <ScrollView
+                behaviour = "height"
+                contentContainerStyle={{ flexGrow: 1 }}>
+                <View style={{padding: 20}}>
+                    <View>
+                        <Text style={{color: 'black', fontSize: 50, textAlign: 'center', marginBottom: 20}}>
+                            Ajouter une pharmacie
+                        </Text>
+                    </View>
+                    <View style={{height: 40, marginBottom: 20}}>
+                        <FormPharmacieContainer/>
+                    </View>
                 </View>
             </ScrollView>
         );

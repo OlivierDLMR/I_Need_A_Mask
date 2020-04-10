@@ -18,7 +18,7 @@ class ItemPharmacie extends Component {
                     Adresse {pharmacie.adresse}
                 </Text>
                 <Text style={{ fontSize: 15, marginBottom: 20 }}>
-                    Masques {pharmacie.masque}
+                    Masques disponibles {pharmacie.masque}
                 </Text>
             </View>
         );

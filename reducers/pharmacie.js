@@ -1,27 +1,42 @@
-import { FETCH_PHARMACIES_REQUEST,
-        FETCH_PHARMACIES_SUCCESS
-        } from "../action/pharmacies";
+import {
+    FETCH_PHARMACIES_REQUEST,
+    FETCH_PHARMACIES_SUCCESS,
+    FETCH_PHARMACIES_FAILURE
+} from '../action/pharmacies';
 
 import {
     ADD_PHARMACIE_REQUEST,
     ADD_PHARMACIE_SUCCESS,
+    ADD_PHARMACIE_FAILURE,
 } from '../action/addPharmacie';
 
-const initialState = { pharmacies: [] }; // Sera accessible via state.pharmacie.items
+const initialState = {
+    pharmacies: []
+};
 
 function pharmacie(state = initialState, action) {
-    switch (action.type) {
+    switch(action.type) {
         case FETCH_PHARMACIES_REQUEST:
             return { ...state, loading: true };
         case ADD_PHARMACIE_REQUEST:
             return { ...state, loading: true };
-        case ADD_PHARMACIE_SUCCESS:
-            return { pharmacies: [...state.pharmacies, action.payload] }
         case FETCH_PHARMACIES_SUCCESS:
-            return { pharmacies: action.payload }
+            return {
+                ...state,
+                pharmacies: action.payload,
+                loading: false
+            };
+        case ADD_PHARMACIE_SUCCESS:
+            return { pharmacies: [...state.pharmacies, action.payload]};
+
+        case FETCH_PHARMACIES_FAILURE:
+            return { ...state, error: action.payload, loading: false };
+        case ADD_PHARMACIE_FAILURE:
+            return { ...state, error: action.payload, loading: false };
         default:
-            return state
+            return state;
     }
 }
 
 export default pharmacie;
+

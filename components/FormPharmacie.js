@@ -18,6 +18,7 @@ class FormPharmacie extends Component {
         console.log(this.state.masque);
 
         this.props.addPharmacie({
+
             name: this.state.name,
             adresse: this.state.adresse,
             latitude: this.state.latitude,
@@ -29,11 +30,9 @@ class FormPharmacie extends Component {
 
     render() {
         return (
-            <ScrollView>
-                <View style = {{ padding:20 }}>
-                    <Text style = {{ color: 'black', fontSize: 50, textAlign: 'center', marginBottom: 20 }}>
-                        Ajouter une pharmacie
-                    </Text>
+
+                <View >
+
 
                     <Text style={{ marginBottom: 10, fontSize: 20 }}>Nom</Text>
                     <TextInput  style={{ height:40, borderColor:'black', borderWidth: 1, marginBottom: 20}}
@@ -71,7 +70,7 @@ class FormPharmacie extends Component {
 
 
                 </View>
-            </ScrollView>
+
 
         );
     }

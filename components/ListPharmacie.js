@@ -8,7 +8,6 @@ class ListPharmacie extends Component {
     render() {
         const {
             pharmacies,
-            navigate,
             loading,
         } = this.props;
 
